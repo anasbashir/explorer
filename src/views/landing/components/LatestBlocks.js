@@ -51,10 +51,21 @@ const TableHeader = styled.thead`
   border: solid 0.5px rgba(0, 0, 0, 0.1) 0;
   background-color: #f0f4ff;
 `;
+
+const TableHeaderRow = styled.tr`
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+`;
 const TableRow = styled.tr`
   display: table;
   width: 100%;
   table-layout: fixed;
+
+  :hover {
+    background-color: unset !important;
+    border-left: 3px solid #1f4bb1;
+  }
 `;
 const TableBody = styled.tbody`
   display: table;
@@ -176,12 +187,12 @@ const LatestBlocks = () => {
       <Header>Latest Blocks</Header>
       <Table hover>
         <TableHeader>
-          <TableRow>
+          <TableHeaderRow>
             <TableHeading>Height</TableHeading>
             <TableHeading>Age</TableHeading>
             <TableHeading>Txs</TableHeading>
             <TableHeading>Prev_Commit</TableHeading>
-          </TableRow>
+          </TableHeaderRow>
         </TableHeader>
         <TableBody>
           {latestBlocks &&

@@ -17,14 +17,20 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
 `;
-const Dots = styled.span`
+
+const DotsContainer = styled.div`
   margin-right: 7px;
+  display: flex;
+`;
+const Dots = styled.span`
+  width: 3px;
+  height: 3px;
+  margin: 13px 2px;
+  background-color: #1f4bb1;
 `;
 const Link = styled(PaginationLink)`
-  padding: 8px 9.2px 8.4px 10px;
-  border-radius: 2px;
-  box-shadow: 0 0 4px 0 rgba(18, 38, 63, 0.1);
-  border: none;
+  padding: 8px 11px 8px 11px;
+  border: solid 0.3px #1f4bb1 !important;
   font-family: PoppinsRegular;
   font-size: 10px;
   font-weight: bold;
@@ -32,7 +38,7 @@ const Link = styled(PaginationLink)`
   font-style: normal;
   line-height: 1.22;
   letter-spacing: 0.27px;
-  color: ${colors.black};
+  color: #1f4bb1;
   &:focus {
     z-index: 3;
     outline: 0;
@@ -49,14 +55,27 @@ const Link = styled(PaginationLink)`
 
 const Item = styled(PaginationItem)`
   margin-right: 7px;
+  box-shadow: 0 0 4px 0 rgba(18, 38, 63, 0.1);
+
   &.active .page-link {
+    color: #fff !important;
     background-color: ${colors.primary};
     border-color: ${colors.primary};
+  }
+
+  .page-link {
+    margin-left: unset !important;
+    border-top-left-radius: unset !important;
+    border-bottom-left-radius: unset !important;
+    border-top-right-radius: unset !important;
+    border-bottom-right-radius: unset !important;
   }
 `;
 
 const DropdownExp = styled(Dropdown)`
   box-shadow: 0 0 4px 0 rgba(18, 38, 63, 0.1);
+  height: 31px;
+  border: solid 0.3px #1f4bb1;
 `;
 
 const DropdownItemExp = styled(DropdownItem)`
@@ -81,7 +100,7 @@ const DropdownToggleExp = styled(DropdownToggle)`
   background: none !important;
   line-height: 1.3;
   border: none;
-  color: ${colors.black} !important;
+  color: #1f4bb1 !important;
   &:focus {
     outline: 0;
     box-shadow: none !important;
@@ -112,7 +131,13 @@ const Pagination = ({
     );
   }
   function dotsItem() {
-    return <Dots>...</Dots>;
+    return (
+      <DotsContainer>
+        <Dots />
+        <Dots />
+        <Dots />
+      </DotsContainer>
+    );
   }
 
   function displayPagination() {

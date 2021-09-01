@@ -9,8 +9,7 @@ import {
   TableCell,
   TableHead,
   TableHeading,
-  TableLoader,
-  TableRow
+  TableLoader
 } from 'src/components';
 import { UncontrolledTooltip } from 'reactstrap';
 import { useMediaQuery } from 'src/hooks';
@@ -60,8 +59,42 @@ const LinkText = styled(Link)`
   &:hover {
     color: #1f4bb1;
 `;
+
+const TableHeaderRow = styled.tr`
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+`;
+
+const TableRow = styled.tr`
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+
+  :hover {
+    background-color: unset !important;
+    border-left: 3px solid #1f4bb1;
+  }
+`;
+
+const HeadeingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Heading = styled.h1`
+  font-size: 20px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: 0.6px;
+  text-align: left;
+  color: #1f4bb1;
+  font-family: PoppinsMedium;
+`;
+
 const BlocksTable = (props) => {
-  const matches = useMediaQuery('(min-width:600px)');
+  const matches = useMediaQuery('(min-width:996px)');
   const dispatch = useDispatch();
 
   // const supply = useSelector((state) => state.supply.totalSupply);
@@ -105,9 +138,11 @@ const BlocksTable = (props) => {
 
   return (
     <Wrapper>
-      {allBlocks && allBlocks.data.blocks.length >= 1 ? (
-        <Header>
-          {allBlocks && (
+      <Header>
+        <HeadeingContainer>
+          <Heading>All Blocks</Heading>
+
+          {allBlocks && allBlocks.data.blocks.length >= 1 ? (
             <Text>
               Block #{allBlocks.data.blocks[0].block_meta.header.height} to #
               {
@@ -116,32 +151,36 @@ const BlocksTable = (props) => {
               }{' '}
               ( Total of {allBlocks.data.blocks.length} blocks)
             </Text>
+          ) : (
+            <Text>Total of 0 blocks</Text>
           )}
+        </HeadeingContainer>
+        {allBlocks && allBlocks.data.blocks.length >= 1 ? (
+          <>
+            {matches && (
+              <Pagination
+                pageHandler={pageHandler}
+                changeLimit={changeLimit}
+                limit={limit}
+                count={allBlocks && allBlocks.data.total_count}
+                currentPage={page - 1}
+              />
+            )}
+          </>
+        ) : (
+          ''
+        )}
+      </Header>
 
-          {matches && (
-            <Pagination
-              pageHandler={pageHandler}
-              changeLimit={changeLimit}
-              limit={limit}
-              count={allBlocks && allBlocks.data.total_count}
-              currentPage={page - 1}
-            />
-          )}
-        </Header>
-      ) : (
-        <Header>
-          <Text>Total of 0 blocks</Text>
-        </Header>
-      )}
       <Table hover>
         <TableHead>
-          <TableRow>
+          <TableHeaderRow>
             <TableHeading>Height</TableHeading>
             <TableHeading>Block Hash</TableHeading>
             <TableHeading>Age</TableHeading>
             <TableHeading>Txs</TableHeading>
             <TableHeading>Proposer</TableHeading>
-          </TableRow>
+          </TableHeaderRow>
         </TableHead>
         <TableBody>
           {allBlocks &&

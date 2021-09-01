@@ -3,7 +3,7 @@ import { PageContainer } from 'src/components';
 import { BlocksTable } from './components';
 const Blocks = () => {
   return (
-    <PageContainer heading="All Blocks">
+    <PageContainer heading="">
       <BlocksTable />
     </PageContainer>
   );

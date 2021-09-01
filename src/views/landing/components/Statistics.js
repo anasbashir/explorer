@@ -85,9 +85,10 @@ const Wrapper = styled.div``;
 //   }
 // `;
 const CardExp = styled(Card)`
-  padding: 1rem;
+  min-width: 150px;
+  padding: 0.6rem;
   display: flex;
-  min-height: 76px;
+  min-height: 66px;
   flex-direction: row;
   justify-content: space-between;
   border: solid 1px #e8efff;
@@ -166,31 +167,37 @@ const InnerBody = styled.div`
   align-items: flex-start;
 `;
 
+const IconWrapper = styled.div`
+  border-radius: 100px;
+  padding: 6px;
+  border: 1px solid #1f4bb1;
+  margin-right: 8px;
+`;
+
 const Icon = styled.img`
   width: 18px;
   height: 18px;
-  margin-right: 8px;
 `;
 const Title = styled(CardTitle)`
   font-family: PoppinsRegular;
-  font-size: 13px;
-  font-weight: normal;
+  font-size: 11px;
+  font-weight: 500;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.26;
-  letter-spacing: 0.29px;
-  text-align: left;
-  color: ${colors.black};
+  line-height: 1.27;
+  letter-spacing: normal;
+  text-align: center;
+  color: #1f4bb1;
 `;
 const Text = styled(CardText)`
-  font-family: PoppinsBold;
-  font-size: 13px;
-  font-weight: normal;
+  font-family: PoppinsRegular;
+  font-size: 11px;
+  font-weight: 500;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.1;
-  letter-spacing: 0.3px;
-  text-align: left;
+  line-height: 1.27;
+  letter-spacing: normal;
+  text-align: center;
   color: ${colors.black};
 `;
 const TextExp = styled.span`
@@ -202,11 +209,11 @@ const TextExp = styled.span`
   line-height: 1.1;
   letter-spacing: 0.3px;
   text-align: left;
-  color: ${colors.black};
+  color: #1f4bb1;
   text-transform: uppercase;
 `;
 const TextFormat = styled(NumberFormat)`
-  font-family: PoppinsBold;
+  font-family: PoppinsRegular;
   font-size: 13px;
   font-weight: normal;
   font-stretch: normal;
@@ -215,6 +222,10 @@ const TextFormat = styled(NumberFormat)`
   letter-spacing: 0.3px;
   text-align: left;
   color: ${colors.black};
+`;
+
+const CardWrapper = styled.div`
+  display: flex;
 `;
 
 const Statistics = () => {
@@ -237,56 +248,74 @@ const Statistics = () => {
     <Wrapper>
       <Row>
         <Col lg="6" md="6" sm="6">
-          <CardExp loading={+nodeInfoLoading}>
-            <CardContent>
-              <Icon src={latestblockheight} alt="latestblockheight" />
-              <InnerBody>
-                <Title>Network</Title>
-                <Text>{nodeInfo && nodeInfo.node_info.network}</Text>
-              </InnerBody>
-            </CardContent>
-            <CardContent>
-              <Icon src={latestblockheight} alt="latestblockheight" />
-              <InnerBody>
-                <Title>Version</Title>
-                <Text>{nodeInfo && nodeInfo.node_info.version}</Text>
-              </InnerBody>
-            </CardContent>
-          </CardExp>
+          <CardWrapper>
+            <CardExp loading={+nodeInfoLoading}>
+              <CardContent>
+                <IconWrapper>
+                  <Icon src={latestblockheight} alt="latestblockheight" />
+                </IconWrapper>
+                <InnerBody>
+                  <Title>Network</Title>
+                  <Text>{nodeInfo && nodeInfo.node_info.network}</Text>
+                </InnerBody>
+              </CardContent>
+            </CardExp>
+            <CardExp loading={+nodeInfoLoading}>
+              <CardContent>
+                <IconWrapper>
+                  <Icon src={latestblockheight} alt="latestblockheight" />
+                </IconWrapper>
+                <InnerBody>
+                  <Title>Version</Title>
+                  <Text>{nodeInfo && nodeInfo.node_info.version}</Text>
+                </InnerBody>
+              </CardContent>
+            </CardExp>
+          </CardWrapper>
         </Col>
         <Col lg="6" md="6" sm="6">
-          <CardExp loading={+totalSupplyLoading}>
-            <CardContent>
-              <Icon src={transaction} alt="transaction" />
-              <InnerBody>
-                <Title>Latest Block</Title>
-                <Text>
-                  {/* {totalSupply && (
+          <CardWrapper>
+            <CardExp loading={+totalSupplyLoading}>
+              <CardContent>
+                <IconWrapper>
+                  <Icon src={transaction} alt="transaction" />
+                </IconWrapper>
+                <InnerBody>
+                  <Title>Latest Block</Title>
+                  <Text>
+                    {/* {totalSupply && (
                     <TextFormat
                       value={totalSupply.height}
                       displayType={'text'}
                       thousandSeparator={true}
                     />
                   )} */}
-                  {latestBlocks && latestBlocks[0].block_meta.header.height}
-                </Text>
-              </InnerBody>
-            </CardContent>
-            <CardContent>
-              <Icon src={transaction} alt="transaction" />
-              <InnerBody>
-                <Title>Protocol Version</Title>
-                <Text>
-                  {nodeInfo && nodeInfo.node_info.protocol_version.p2p}
-                </Text>
-              </InnerBody>
-            </CardContent>
-          </CardExp>
+                    {latestBlocks && latestBlocks[0].block_meta.header.height}
+                  </Text>
+                </InnerBody>
+              </CardContent>
+            </CardExp>
+            <CardExp>
+              <CardContent>
+                <IconWrapper>
+                  <Icon src={transaction} alt="transaction" />
+                </IconWrapper>
+                <InnerBody>
+                  <Title>Protocol Version</Title>
+                  <Text>
+                    {nodeInfo && nodeInfo.node_info.protocol_version.p2p}
+                  </Text>
+                </InnerBody>
+              </CardContent>
+            </CardExp>
+          </CardWrapper>
         </Col>
         <Col lg="6" md="6" sm="6">
           <CardExp loading={+totalSupplyLoading}>
             <CardContent>
-              <Icon src={marketcap} alt="marketcap" />
+              <IconWrapper>
+                <Icon src={marketcap} alt="marketcap" />
+              </IconWrapper>
               <InnerBody>
                 <Title>Inflation</Title>
                 <Text>
@@ -317,76 +346,100 @@ const Statistics = () => {
           </CardExp>
         </Col>
         <Col lg="6" md="6" sm="6">
-          <CardExp loading={+totalSupplyLoading}>
-            <CardContent>
-              <Icon src={marketcap} alt="marketcap" />
-              <InnerBody>
-                <Title>Current Supply</Title>
-                <Text>
-                  {totalSupply && (
-                    <Fragment>
-                      {name === 'v2f' ? '333,333,333' : '70,000,000'}
-                      <TextExp>
-                        {' '}
-                        {name === 'v2f'
-                          ? 'V2F'
-                          : totalSupply.result[0].denom.replace(
-                              SYMBOL_REGEX,
-                              ''
-                            )}
-                      </TextExp>
-                    </Fragment>
-                  )}
-                </Text>
-              </InnerBody>
-            </CardContent>
-            <CardContent>
-              <Icon src={averageblock} alt="averageblock" />
-              <InnerBody>
-                <Title>Peer Speed</Title>
-                <Text>Not Loaded</Text>
-              </InnerBody>
-            </CardContent>
-          </CardExp>
+          <CardWrapper>
+            <CardExp loading={+totalSupplyLoading}>
+              <CardContent>
+                <IconWrapper>
+                  <Icon src={marketcap} alt="marketcap" />
+                </IconWrapper>
+                <InnerBody>
+                  <Title>Current Supply</Title>
+                  <Text>
+                    {totalSupply && (
+                      <Fragment>
+                        {name === 'v2f' ? '333,333,333' : '70,000,000'}
+                        <TextExp>
+                          {' '}
+                          {name === 'v2f'
+                            ? 'V2F'
+                            : totalSupply.result[0].denom.replace(
+                                SYMBOL_REGEX,
+                                ''
+                              )}
+                        </TextExp>
+                      </Fragment>
+                    )}
+                  </Text>
+                </InnerBody>
+              </CardContent>
+            </CardExp>
+            <CardExp>
+              <CardContent>
+                <IconWrapper>
+                  <Icon src={averageblock} alt="averageblock" />
+                </IconWrapper>
+                <InnerBody>
+                  <Title>Peer Speed</Title>
+                  <Text>Not Loaded</Text>
+                </InnerBody>
+              </CardContent>
+            </CardExp>
+          </CardWrapper>
         </Col>
         <Col lg="6" md="6" sm="6">
-          <CardExp loading={+coinPriceLoading}>
-            <CardContent>
-              <Icon src={accounts} alt="accounts" />
-              <InnerBody>
-                <Title>Accounts</Title>
-                <Text>Not Loaded</Text>
-              </InnerBody>
-            </CardContent>
-            <CardContent>
-              <Icon src={latestblockheight} alt="latestblockheight" />
-              <InnerBody>
-                <Title>LBY Price</Title>
-                <Text>
-                  {coinPrice && coinPrice} &nbsp;
-                  <TextExp>USD</TextExp>
-                </Text>
-              </InnerBody>
-            </CardContent>
-          </CardExp>
+          <CardWrapper>
+            <CardExp loading={+coinPriceLoading}>
+              <CardContent>
+                <IconWrapper>
+                  <Icon src={accounts} alt="accounts" />
+                </IconWrapper>
+                <InnerBody>
+                  <Title>Accounts</Title>
+                  <Text>Not Loaded</Text>
+                </InnerBody>
+              </CardContent>
+            </CardExp>
+            <CardExp>
+              <CardContent>
+                <IconWrapper>
+                  <Icon src={latestblockheight} alt="latestblockheight" />
+                </IconWrapper>
+                <InnerBody>
+                  <Title>LBY Price</Title>
+                  <Text>
+                    {coinPrice && coinPrice} &nbsp;
+                    <TextExp>USD</TextExp>
+                  </Text>
+                </InnerBody>
+              </CardContent>
+            </CardExp>
+          </CardWrapper>
         </Col>
         <Col lg="6" md="6" sm="6">
-          <CardExp>
-            <CardContent>
-              <Icon src={difficulty} alt="difficulty" />
-              <InnerBody>
-                <Title>Difficulty</Title>
-                <Text>Not Loaded</Text>
-              </InnerBody>
-            </CardContent>
-            <CardContent>
-              <Icon src={difficulty} />
-              <InnerBody>
-                <Title>Hash Rate</Title>
-                <Text>Not Loaded</Text>
-              </InnerBody>
-            </CardContent>
-          </CardExp>
+          <CardWrapper>
+            <CardExp>
+              <CardContent>
+                <IconWrapper>
+                  <Icon src={difficulty} alt="difficulty" />
+                </IconWrapper>
+                <InnerBody>
+                  <Title>Difficulty</Title>
+                  <Text>Not Loaded</Text>
+                </InnerBody>
+              </CardContent>
+            </CardExp>
+            <CardExp>
+              <CardContent>
+                <IconWrapper>
+                  <Icon src={difficulty} />
+                </IconWrapper>
+                <InnerBody>
+                  <Title>Hash Rate</Title>
+                  <Text>Not Loaded</Text>
+                </InnerBody>
+              </CardContent>
+            </CardExp>
+          </CardWrapper>
         </Col>
         {/* <ButtonExp>
           <CardButton>Click To See More</CardButton>

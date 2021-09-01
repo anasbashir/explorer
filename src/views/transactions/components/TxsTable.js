@@ -47,10 +47,21 @@ const TableHeader = styled.thead`
   border: solid 0.5px rgba(0, 0, 0, 0.1) 0;
   background-color: #f0f4ff;
 `;
+const TableHeaderRow = styled.tr`
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+`;
+
 const TableRow = styled.tr`
   display: table;
   width: 100%;
   table-layout: fixed;
+
+  :hover {
+    background-color: unset !important;
+    border-left: 3px solid #1f4bb1;
+  }
 `;
 const TableBody = styled.tbody`
   height: 405px;
@@ -71,6 +82,17 @@ const Footer = styled.div`
   justify-content: row;
   justify-content: flex-end;
   padding: 1rem;
+`;
+
+const SubText = styled.span`
+  font-family: PoppinsRegular;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.75;
+  letter-spacing: 0.36px;
+  text-align: left;
 `;
 
 const Text = styled.span`
@@ -111,6 +133,22 @@ const LinkText = styled(Link)`
   &:hover {
     color: #1f4bb1;
 `;
+
+const Heading = styled.h1`
+  font-size: 20px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: 0.6px;
+  text-align: left;
+  color: #1f4bb1;
+  font-family: PoppinsMedium;
+`;
+const HeadeingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const TxsTable = (props) => {
   const matches = useMediaQuery('(min-width:600px)');
   const { location } = props;
@@ -156,34 +194,44 @@ const TxsTable = (props) => {
 
   return (
     <Wrapper>
-      {txs && txs.length >= 1 ? (
-        <Header>
-          <Text>A total of {txs && txs.length} latest transactions</Text>
-          {matches && (
-            <Pagination
-              pageHandler={pageHandler}
-              changeLimit={changeLimit}
-              count={allTxs && allTxs.data.count}
-              limit={limit}
-              currentPage={page - 1}
-            />
+      <Header>
+        <HeadeingContainer>
+          <Heading>All Transactions</Heading>
+          {txs && txs.length >= 1 ? (
+            <SubText>
+              A total of {txs && txs.length} latest transactions
+            </SubText>
+          ) : (
+            <SubText>A total of 0 latest transactions</SubText>
           )}
-        </Header>
-      ) : (
-        <Header>
-          <Text>A total of {txs && txs.length} latest transactions</Text>
-        </Header>
-      )}
+        </HeadeingContainer>
+        {txs && txs.length >= 1 ? (
+          <>
+            {matches && (
+              <Pagination
+                pageHandler={pageHandler}
+                changeLimit={changeLimit}
+                count={allTxs && allTxs.data.count}
+                limit={limit}
+                currentPage={page - 1}
+              />
+            )}
+          </>
+        ) : (
+          ''
+        )}
+      </Header>
+
       <Table hover>
         <TableHeader>
-          <TableRow>
+          <TableHeaderRow>
             <TableHeading>Tx Hash</TableHeading>
             <TableHeading>Age</TableHeading>
             <TableHeading>Status</TableHeading>
             <TableHeading>From</TableHeading>
             <TableHeading>To</TableHeading>
             <TableHeading>Value</TableHeading>
-          </TableRow>
+          </TableHeaderRow>
         </TableHeader>
         <TableBody>
           {txs &&

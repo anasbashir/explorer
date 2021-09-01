@@ -53,10 +53,22 @@ const LinkExp = styled(Link)`
     color: #fff;
     text-decoration: none;
 `;
+
+const TableHeaderRow = styled.tr`
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+`;
+
 const TableRow = styled.tr`
   display: table;
   width: 100%;
   table-layout: fixed;
+
+  :hover {
+    background-color: unset !important;
+    border-left: 3px solid #1f4bb1;
+  }
 `;
 const TableBody = styled.tbody`
   display: table;
@@ -173,12 +185,12 @@ const LatestTxs = () => {
       <Header>Latest Transactions</Header>
       <Table hover>
         <TableHeader>
-          <TableRow>
+          <TableHeaderRow>
             <TableHeading>Tx Hash</TableHeading>
             <TableHeading>Age</TableHeading>
             <TableHeading>From</TableHeading>
             <TableHeading>To</TableHeading>
-          </TableRow>
+          </TableHeaderRow>
         </TableHeader>
         <TableBody>
           {latestTxs &&

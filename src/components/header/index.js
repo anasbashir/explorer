@@ -75,7 +75,8 @@ const SearchBox = styled(InputGroup)`
   flex: 3;
   background: white;
   border-radius: 6px;
-  border: solid 1px ${colors.borderGrey};
+  border: solid 1px #e8efff;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.16);
 
   input.form-control {
     padding-left: 20px !important;
@@ -134,7 +135,16 @@ const IconButton = styled(Button)`
   border-bottom-left-radius: 6px;
 `;
 
-const SelectExp = styled(Select)``;
+const SelectExp = styled(Select)`
+  font-family: PoppinsRegular;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: 0.36px;
+  text-align: left;
+  color: #1f4bb1;
+`;
 
 const SelectWrapper = styled.div`
   display: flex;
@@ -147,7 +157,14 @@ const SelectBoxWrapper = styled.div`
 `;
 
 const BlockchainSelect = styled(Select)`
-  border: solid 1px rgba(90, 90, 90, 0.5);
+  font-family: PoppinsRegular;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+
+  border: solid 1px #1f4bb1;
   border-radius: 6px;
   margin-right: 10px;
   flex-basis: 130px;

@@ -4,7 +4,7 @@ import TxsTable from './components/TxsTable';
 
 const Transactions = () => {
   return (
-    <PageContainer heading="All Transactions">
+    <PageContainer heading="">
       <TxsTable />
     </PageContainer>
   );
