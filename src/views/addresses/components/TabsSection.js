@@ -6,12 +6,15 @@ import { AddressTable } from '.';
 import classNames from 'classnames';
 
 const Wrapper = styled.div`
-  padding: 22px 0 18.9px 0px;
-  border-radius: 8px;
-  box-shadow: ${colors.shaddow};
+  border-top: 4px solid #1f4bb1;
   background-color: ${colors.white};
   min-height: 500px;
 `;
+
+const CustomNav = styled(Nav)`
+  padding-left: 16px;
+`;
+
 const NavLinkExp = styled(NavLink)`
   font-family: PoppinsMedium;
   font-size: 12px;
@@ -22,6 +25,7 @@ const NavLinkExp = styled(NavLink)`
   text-align: left;
   color: #000000;
   border-bottom: 2px solid transparent !important;
+  padding: 14px 0px;
   &.active {
     border-bottom-color: ${colors.primary} !important;
     border-left-color: transparent !important;
@@ -47,7 +51,7 @@ const TabsSection = () => {
   };
   return (
     <Wrapper>
-      <Nav tabs>
+      <CustomNav tabs>
         <NavItem>
           <NavLinkExp
             className={classNames({ active: activeTab === '1' })}
@@ -57,7 +61,7 @@ const TabsSection = () => {
             Transactions
           </NavLinkExp>
         </NavItem>
-      </Nav>
+      </CustomNav>
       <TabContent activeTab={activeTab}>
         <TabPane tabId="1">
           <AddressTable />

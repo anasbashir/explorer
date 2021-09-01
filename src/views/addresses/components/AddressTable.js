@@ -8,7 +8,6 @@ import {
   // TableHead,
   TableHeading,
   TableLoader,
-  TableRow,
   IconText
 } from 'src/components';
 import { UncontrolledTooltip } from 'reactstrap';
@@ -51,6 +50,23 @@ const Footer = styled.div`
 const TableHeader = styled.thead`
   border: solid 0.5px rgba(0, 0, 0, 0.1) 0;
   background-color: #f0f4ff;
+`;
+
+const TableHeaderRow = styled.tr`
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+`;
+
+const TableRow = styled.tr`
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+
+  :hover {
+    background-color: unset !important;
+    border-left: 3px solid #1f4bb1;
+  }
 `;
 
 const Text = styled.span`
@@ -209,12 +225,12 @@ const AddressTable = (props) => {
         </Header>
       ) : (
         <Header>
-          <Text>A total of {txs && txs.data.count} transactions found</Text>
+          <Text>A total of 0 transactions found</Text>
         </Header>
       )}
       <Table hover>
         <TableHeader>
-          <TableRow>
+          <TableHeaderRow>
             <TableHeading>Tx Hash</TableHeading>
             <TableHeading>Age</TableHeading>
             <TableHeading>Status</TableHeading>
@@ -222,7 +238,7 @@ const AddressTable = (props) => {
             <TableHeading></TableHeading>
             <TableHeading>To</TableHeading>
             <TableHeading>Value</TableHeading>
-          </TableRow>
+          </TableHeaderRow>
         </TableHeader>
         <TableBody>
           {txs &&

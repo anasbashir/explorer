@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   margin-bottom: 2rem;
 `;
 const TextFormat = styled(NumberFormat)`
-  font-family: PoppinsBold;
+  font-family: PoppinsRegular;
   font-size: 13px;
   font-weight: normal;
   font-stretch: normal;
@@ -27,12 +27,10 @@ const CardExp = styled(Card)`
   padding: 1rem;
   display: flex;
   flex-direction: row;
-  box-shadow: ${colors.shaddow};
-  border: 1px solid #fff;
+  border: solid 1px #e8efff;
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  border-radius: 8px;
   background-color: ${colors.white};
   @media (max-width: 991px) {
     width: 320px;
@@ -121,7 +119,7 @@ const IconExp = styled.img`
   justify-content: space-between;
 `;
 const Title = styled(CardTitle)`
-  font-family: PoppinsBold;
+  font-family: PoppinsRegular;
   font-size: 13px;
   font-weight: normal;
   font-stretch: normal;
@@ -129,7 +127,7 @@ const Title = styled(CardTitle)`
   line-height: 1;
   letter-spacing: 0.29px;
   text-align: left;
-  color: #000000;
+  color: #1f4bb1;
 `;
 const Text = styled(CardText)`
   font-family: PoppinsRegular;
@@ -199,7 +197,7 @@ const TextExp = styled.span`
   line-height: 1.1;
   letter-spacing: 0.3px;
   text-align: left;
-  color: ${colors.black};
+  color: #1f4bb1;
 `;
 const TextBox = styled.div`
   padding: 2px 0px;
@@ -234,11 +232,13 @@ const AddressInfo = (props) => {
                         displayType={'text'}
                         thousandSeparator={true}
                       />{' '}
-                      {details?.data.value?.coins[0]?.denom.replace(
-                        SYMBOL_REGEX,
+                      <TextExp>
+                        {details?.data.value?.coins[0]?.denom.replace(
+                          SYMBOL_REGEX,
 
-                        ''
-                      )}
+                          ''
+                        )}
+                      </TextExp>
                     </Fragment>
                   ) : (
                     <TextExp>0 LBY</TextExp>
@@ -261,8 +261,8 @@ const AddressInfo = (props) => {
                 details?.data?.value?.coins[0]?.amount &&
                 details?.data?.value?.coins[0]?.denom.includes('flby') ? (
                   <Text>
+                    $
                     <NumExp>
-                      $
                       <TextFormat
                         value={(
                           (details?.data?.value?.coins[0]?.amount * x) /
@@ -272,7 +272,7 @@ const AddressInfo = (props) => {
                         thousandSeparator={true}
                       />
                     </NumExp>
-                    (@ ${marketPrice?.data?.usd}/LBY)
+                    <TextExp>(@ ${marketPrice?.data?.usd}/LBY)</TextExp>
                   </Text>
                 ) : (
                   <TextExp>$0</TextExp>
@@ -299,11 +299,13 @@ const AddressInfo = (props) => {
                           displayType={'text'}
                           thousandSeparator={true}
                         />{' '}
-                        {details?.data?.value?.coins[1]?.denom.replace(
-                          SYMBOL_REGEX,
+                        <TextExp>
+                          {details?.data?.value?.coins[1]?.denom.replace(
+                            SYMBOL_REGEX,
 
-                          ''
-                        )}
+                            ''
+                          )}
+                        </TextExp>
                       </Fragment>
                     ) : (
                       ''
@@ -320,11 +322,13 @@ const AddressInfo = (props) => {
                           displayType={'text'}
                           thousandSeparator={true}
                         />{' '}
-                        {details?.data?.value?.coins[0]?.denom.replace(
-                          SYMBOL_REGEX,
+                        <TextExp>
+                          {details?.data?.value?.coins[0]?.denom.replace(
+                            SYMBOL_REGEX,
 
-                          ''
-                        )}
+                            ''
+                          )}
+                        </TextExp>
                       </Fragment>
                     ) : (
                       <TextExp> $0 </TextExp>
@@ -345,11 +349,13 @@ const AddressInfo = (props) => {
                             displayType={'text'}
                             thousandSeparator={true}
                           />{' '}
-                          {details?.data?.value?.coins[2]?.denom.replace(
-                            SYMBOL_REGEX,
+                          <TextExp>
+                            {details?.data?.value?.coins[2]?.denom.replace(
+                              SYMBOL_REGEX,
 
-                            ''
-                          )}
+                              ''
+                            )}
+                          </TextExp>
                         </Fragment>
                       ) : (
                         ''
@@ -368,11 +374,13 @@ const AddressInfo = (props) => {
                             displayType={'text'}
                             thousandSeparator={true}
                           />{' '}
-                          {details?.data?.value?.coins[1]?.denom.replace(
-                            SYMBOL_REGEX,
+                          <TextExp>
+                            {details?.data?.value?.coins[1]?.denom.replace(
+                              SYMBOL_REGEX,
 
-                            ''
-                          )}
+                              ''
+                            )}
+                          </TextExp>
                         </Fragment>
                       ) : null}
                     </Text>

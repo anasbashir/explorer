@@ -11,6 +11,7 @@ import {
 import { getAccountDetails } from 'src/redux/actions';
 import { Copy } from 'src/components';
 import { withRouter } from 'react-router-dom';
+import { Container } from 'reactstrap';
 const containerStyles = { paddingTop: 0, boxShadow: 'none' };
 
 // const SubHeading = styled.h6`
@@ -45,6 +46,20 @@ const Icon = styled.h6`
     font-size: 2.5vw;
   }
 `;
+
+const Heading = styled.h1`
+  font-size: 20px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: 0.6px;
+  text-align: left;
+  color: #1f4bb1;
+  margin: 2rem 0 1rem 0px;
+  font-family: PoppinsMedium;
+`;
+
 const ViewAddress = (props) => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -53,7 +68,9 @@ const ViewAddress = (props) => {
   const { address } = props.match.params;
 
   return (
-    <PageContainer bg="transparent" heading="Address" style={containerStyles}>
+    // <PageContainer style={containerStyles}>
+    <Container>
+      <Heading>Address</Heading>
       <SubHeading>
         <Icon>
           {address}
@@ -62,7 +79,8 @@ const ViewAddress = (props) => {
       </SubHeading>
       <AddressInfo />
       <TabsSection />
-    </PageContainer>
+    </Container>
+    // </PageContainer>
   );
 };
 
