@@ -55,7 +55,7 @@ const CustomNav = styled(Nav)`
 
 const CustomNavLinkExp = styled(NavLinkExp)`
   background-color: #f0f4ff !important;
-  color: #1f4bb1 !important ;
+  color: #1f4bb1 !important;
   font-size: 12px;
   font-weight: 600;
   font-family: PoppinsBold;

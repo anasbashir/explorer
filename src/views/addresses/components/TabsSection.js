@@ -23,7 +23,7 @@ const NavLinkExp = styled(NavLink)`
   font-style: normal;
   letter-spacing: 0.36px;
   text-align: left;
-  color: #000000;
+  color: #1f4bb1 !important;
   border-bottom: 2px solid transparent !important;
   padding: 14px 0px;
   &.active {
