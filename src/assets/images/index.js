@@ -37,3 +37,6 @@ export { default as home } from './home.svg';
 export { default as discord } from './discord.png';
 export { default as telegram } from './telegram.png';
 export { default as filter } from './filter.png';
+export { default as notfound } from './404.png';
+export { default as snap } from './OhSnap.png';
+export { default as error } from './Error404.png';

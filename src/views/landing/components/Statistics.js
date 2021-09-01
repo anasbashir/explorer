@@ -85,7 +85,6 @@ const Wrapper = styled.div``;
 //   }
 // `;
 const CardExp = styled(Card)`
-  min-width: 150px;
   padding: 0.6rem;
   display: flex;
   min-height: 66px;
@@ -94,6 +93,8 @@ const CardExp = styled(Card)`
   border: solid 1px #e8efff;
   background-color: ${colors.white};
   margin-bottom: 1rem;
+  width: 100%;
+  min-width: 150px;
 
   ${({ loading }) =>
     loading &&
@@ -295,7 +296,7 @@ const Statistics = () => {
                 </InnerBody>
               </CardContent>
             </CardExp>
-            <CardExp>
+            <CardExp loading={+totalSupplyLoading}>
               <CardContent>
                 <IconWrapper>
                   <Icon src={transaction} alt="transaction" />
@@ -373,7 +374,7 @@ const Statistics = () => {
                 </InnerBody>
               </CardContent>
             </CardExp>
-            <CardExp>
+            <CardExp loading={+totalSupplyLoading}>
               <CardContent>
                 <IconWrapper>
                   <Icon src={averageblock} alt="averageblock" />
@@ -399,7 +400,7 @@ const Statistics = () => {
                 </InnerBody>
               </CardContent>
             </CardExp>
-            <CardExp>
+            <CardExp loading={+totalSupplyLoading}>
               <CardContent>
                 <IconWrapper>
                   <Icon src={latestblockheight} alt="latestblockheight" />
@@ -417,7 +418,7 @@ const Statistics = () => {
         </Col>
         <Col lg="6" md="6" sm="6">
           <CardWrapper>
-            <CardExp>
+            <CardExp loading={+totalSupplyLoading}>
               <CardContent>
                 <IconWrapper>
                   <Icon src={difficulty} alt="difficulty" />
@@ -428,7 +429,7 @@ const Statistics = () => {
                 </InnerBody>
               </CardContent>
             </CardExp>
-            <CardExp>
+            <CardExp loading={+totalSupplyLoading}>
               <CardContent>
                 <IconWrapper>
                   <Icon src={difficulty} />
