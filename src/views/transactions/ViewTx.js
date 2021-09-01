@@ -35,6 +35,37 @@ const NavLinkExp = styled(NavLink)`
   }
 `;
 
+const Heading = styled.h1`
+  font-size: 20px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: 0.6px;
+  text-align: left;
+  color: #1f4bb1;
+  font-family: PoppinsMedium;
+  padding: 16px 16px 20px;
+`;
+
+const CustomNav = styled(Nav)`
+  background-color: #f0f4ff;
+  padding-left: 16px;
+  border-top: 1px solid #dee2e6;
+`;
+
+const CustomNavLinkExp = styled(NavLinkExp)`
+  background-color: #f0f4ff !important;
+  color: #1f4bb1 !important ;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: PoppinsBold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.83;
+  letter-spacing: 0.36px;
+  padding: 14px 0px;
+`;
+
 const ViewTx = () => {
   const [activeTab, setActiveTab] = useState('1');
 
@@ -43,16 +74,17 @@ const ViewTx = () => {
   };
 
   return (
-    <PageContainer heading="Transaction Details">
-      <Nav tabs>
+    <PageContainer heading="">
+      <Heading>Transaction Details</Heading>
+      <CustomNav tabs>
         <NavItem>
-          <NavLinkExp
+          <CustomNavLinkExp
             className={classnames({ active: activeTab === '1' })}
             onClick={() => {
               toggle('1');
             }}>
             Overview
-          </NavLinkExp>
+          </CustomNavLinkExp>
         </NavItem>
         {/* <NavItem>
           <NavLinkExp
@@ -72,7 +104,7 @@ const ViewTx = () => {
             Comments
           </NavLinkExp>
         </NavItem> */}
-      </Nav>
+      </CustomNav>
       <TabContent activeTab={activeTab}>
         <TabPane tabId="1">
           <Overview />
