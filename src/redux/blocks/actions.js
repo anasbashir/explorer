@@ -9,13 +9,7 @@ import {
 
 export const getAllBlocks = (filter) => (dispatch, getState) => {
   const { name } = getState().blockchain;
-  console.log(name);
   dispatch(getAllBlocksLoading());
-  console.log(
-    process.env[`REACT_APP_EXPLORER_API_${name}`],
-    process.env.REACT_APP_EXPLORER_API_v2f,
-    `REACT_APP_EXPLORER_API_${name}`
-  );
   axios
     .get(`${process.env[`REACT_APP_EXPLORER_API_${name}`]}/api/blocks`, {
       params: filter
