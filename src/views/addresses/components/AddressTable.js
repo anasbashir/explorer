@@ -24,6 +24,7 @@ import { SYMBOL_REGEX } from 'src/vars/regex';
 import { successIcon, failIcon } from 'src/assets/images';
 import colors from 'src/vars/colors';
 import { withRouter, useParams } from 'react-router-dom';
+import { Fragment } from 'react-is';
 const Wrapper = styled.div`
   overflow-y: auto;
 `;
@@ -266,13 +267,21 @@ const AddressTable = (props) => {
                   )}
                 </TableCell>
                 <TableCell id={`from_address${index}`}>
-                  <LinkText
-                    to={`/addresses/${item.tx.value.msg[0].value.from_address}`}>
-                    {item.tx.value.msg[0].value.from_address}
-                  </LinkText>
-                  <Tooltip placement="bottom" target={`from_address${index}`}>
-                    {item.tx.value.msg[0].value.from_address}
-                  </Tooltip>
+                  {item.tx.value.msg[0].value.from_address ? (
+                    <Fragment>
+                      <Link
+                        to={`/addresses/${item.tx.value.msg[0].value.from_address}`}>
+                        {item.tx.value.msg[0].value.from_address}
+                      </Link>
+                      <Tooltip
+                        placement="bottom"
+                        target={`from_address${index}`}>
+                        {item.tx.value.msg[0].value.from_address}
+                      </Tooltip>
+                    </Fragment>
+                  ) : (
+                    'N/A'
+                  )}
                 </TableCell>
                 <TableCell>
                   {getType(
@@ -281,26 +290,40 @@ const AddressTable = (props) => {
                   )}
                 </TableCell>
                 <TableCell id={`to_address${index}`}>
-                  <LinkText
-                    to={`/addresses/${item.tx.value.msg[0].value.to_address}`}>
-                    {item.tx.value.msg[0].value.to_address}
-                  </LinkText>
-                  <Tooltip placement="bottom" target={`to_address${index}`}>
-                    {item.tx.value.msg[0].value.to_address}
-                  </Tooltip>
+                  {item.tx.value.msg[0].value.to_address ? (
+                    <Fragment>
+                      <Link
+                        to={`/addresses/${item.tx.value.msg[0].value.to_address}`}>
+                        {item.tx.value.msg[0].value.to_address}
+                      </Link>
+                      <Tooltip placement="bottom" target={`to_address${index}`}>
+                        {item.tx.value.msg[0].value.to_address}
+                      </Tooltip>
+                    </Fragment>
+                  ) : (
+                    'N/A'
+                  )}
                 </TableCell>
                 <TableCell>
                   <NumberFormat
-                    value={item.tx.value.msg[0].value.amount[0].amount / SCALE}
+                    value={
+                      item.tx.value?.msg[0]?.value?.amount
+                        ? item.tx.value?.msg[0]?.value?.amount[0].amount / SCALE
+                        : item.tx.value?.msg[0]?.value?.value?.amount / SCALE
+                    }
                     displayType={'text'}
                     thousandSeparator={true}
                   />
                   <Text uppercase>
-                    {' '}
-                    {item.tx.value.msg[0].value.amount[0].denom.replace(
-                      SYMBOL_REGEX,
-                      ''
-                    )}
+                    {item.tx.value.msg[0].value.amount
+                      ? item.tx.value.msg[0].value.amount[0].denom.replace(
+                          SYMBOL_REGEX,
+                          ''
+                        )
+                      : item.tx.value?.msg[0]?.value?.value?.denom.replace(
+                          SYMBOL_REGEX,
+                          ''
+                        )}
                   </Text>
                 </TableCell>
               </TableRow>
