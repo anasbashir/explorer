@@ -189,6 +189,7 @@ const Title = styled(CardTitle)`
   letter-spacing: normal;
   text-align: center;
   color: #1f4bb1;
+  margin-bottom: 0.5rem;
 `;
 const Text = styled(CardText)`
   font-family: PoppinsRegular;
@@ -198,7 +199,7 @@ const Text = styled(CardText)`
   font-style: normal;
   line-height: 1.27;
   letter-spacing: normal;
-  text-align: center;
+  text-align: left;
   color: ${colors.black};
 `;
 const TextExp = styled.span`
