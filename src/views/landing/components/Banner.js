@@ -16,6 +16,7 @@ const Wrapper = styled.div`
   align-items: center;
   text-align: center;
   flex-wrap: wrap;
+  height: 220px;
   @media (max-width: 991px) {
     height: auto;
   }
