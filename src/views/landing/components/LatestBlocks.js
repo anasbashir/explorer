@@ -173,6 +173,11 @@ const LinkText = styled(Link)`
   &:hover {
     color: #1f4bb1;
 `;
+
+const Age = styled.div`
+  max-width: 110px;
+`;
+
 const LatestBlocks = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -214,7 +219,7 @@ const LatestBlocks = () => {
                   </IconText>
                 </TableCol>
                 <TableCol>
-                  {moment(item.block_meta.header.time).fromNow()}
+                  <Age>{moment(item.block_meta.header.time).fromNow()}</Age>
                 </TableCol>
                 <TableCol>{item.block_meta.header.num_txs}</TableCol>
                 <TableCol>{item.block_meta.header.last_commit_hash}</TableCol>

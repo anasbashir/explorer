@@ -173,6 +173,9 @@ const LinkText = styled(Link)`
   &:hover {
     color: #1f4bb1;
 `;
+const Age = styled.div`
+  max-width: 120px;
+`;
 const LatestTxs = () => {
   const dispatch = useDispatch();
 
@@ -211,7 +214,9 @@ const LatestTxs = () => {
                     </Tooltip>
                   </IconText>
                 </TableCol>
-                <TableCol>{moment(item.timestamp).fromNow()}</TableCol>
+                <TableCol>
+                  <Age>{moment(item.timestamp).fromNow()}</Age>
+                </TableCol>
 
                 <TableCol>
                   {item.tx.value.msg[0].value.from_address ? (
