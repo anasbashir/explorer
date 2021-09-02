@@ -118,8 +118,8 @@ const CardExp = styled(Card)`
     top: 50%;
     left: 50%;
     margin: -1.3em 0 0 -1.3em;
-    width: 2.5em;
-    height: 2.5em;
+    width: 2em;
+    height: 2em;
     -webkit-animation: segment-spin .6s linear;
     animation: segment-spin .6s linear;
     -webkit-animation-iteration-count: infinite;

@@ -65,7 +65,7 @@ const TableRow = styled.tr`
   }
 `;
 const TableBody = styled.tbody`
-  height: 405px;
+  height: 370px;
   display: table;
   width: 100%;
   table-layout: fixed;
@@ -322,9 +322,9 @@ const TxsTable = (props) => {
               </TableRow>
             ))}
           {!allTxsLoading && !txs?.length && (
-            <NoData colSpan={6} height={360} />
+            <NoData colSpan={6} height={340} />
           )}
-          {allTxsLoading && <TableLoader colSpan={6} height={360} />}
+          {allTxsLoading && <TableLoader colSpan={6} height={340} />}
         </TableBody>
       </Table>
       {txs && txs.length >= 1 ? (

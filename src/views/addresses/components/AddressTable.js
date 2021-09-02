@@ -330,9 +330,9 @@ const AddressTable = (props) => {
               </TableRow>
             ))}
           {!txsLoading && !txs?.data.txs?.length && (
-            <NoData colSpan={7} height={360} />
+            <NoData colSpan={7} height={340} />
           )}
-          {txsLoading && <TableLoader colSpan={7} height={360} />}
+          {txsLoading && <TableLoader colSpan={7} height={340} />}
         </TableBody>
       </Table>
       {txs && txs.data.count >= 1 ? (
