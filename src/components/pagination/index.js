@@ -110,6 +110,19 @@ const DropdownToggleExp = styled(DropdownToggle)`
   }
 `;
 
+const DropdownMenuExp = styled(DropdownMenu)`
+  .dropdown-item.active,
+  .dropdown-item:active {
+    background-color: #f0f4ff;
+    color: #1f4bb1;
+  }
+
+  .dropdown-item:hover,
+  .dropdown-item:focus {
+    background-color: #f0f4ff;
+  }
+`;
+
 const Pagination = ({
   count = 100,
   limit = 10,
@@ -209,7 +222,7 @@ const Pagination = ({
         ? displayPagination() && (
             <DropdownExp isOpen={dropdownOpen} toggle={toggle}>
               <DropdownToggleExp caret>{limit}/Page</DropdownToggleExp>
-              <DropdownMenu>
+              <DropdownMenuExp>
                 {[10, 20, 30, 40, 50].map((item, i) => (
                   <DropdownItemExp
                     key={i}
@@ -218,7 +231,7 @@ const Pagination = ({
                     {item}/pages
                   </DropdownItemExp>
                 ))}
-              </DropdownMenu>
+              </DropdownMenuExp>
             </DropdownExp>
           )
         : ''}
