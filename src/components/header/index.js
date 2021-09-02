@@ -176,6 +176,7 @@ const BlockchainSelect = styled(Select)`
 
 const FilterIcon = styled.img`
   height: 20px;
+  margin-right: 8px;
 `;
 
 const style = {
@@ -184,7 +185,33 @@ const style = {
     border: 0,
     boxShadow: 'none',
     borderRadius: '7px',
-    marginTop: ' 2px !important',
+    cursor: 'pointer'
+  }),
+  singleValue: () => ({
+    color: '#1f4bb1 !important'
+  }),
+  option: (styles, { isFocused, isSelected, isActive }) => {
+    return {
+      ...styles,
+
+      backgroundColor: isFocused
+        ? '#f0f4ff !important'
+        : isSelected
+        ? 'none !important'
+        : isActive
+        ? '#1f4bb1'
+        : null,
+      color: '#333333'
+    };
+  }
+};
+
+const filterStyle = {
+  control: (base) => ({
+    ...base,
+    border: 0,
+    boxShadow: 'none',
+    borderRadius: '7px',
     cursor: 'pointer'
   }),
   option: (styles, { isFocused, isSelected, isActive }) => {
@@ -192,11 +219,11 @@ const style = {
       ...styles,
 
       backgroundColor: isFocused
-        ? '#dbeef1 !important'
+        ? '#f0f4ff !important'
         : isSelected
         ? 'none !important'
         : isActive
-        ? '95e7ec'
+        ? '#1f4bb1'
         : null,
       color: '#333333'
     };
@@ -290,7 +317,7 @@ const Header = (props) => {
                 <FilterIcon src={filter} alt="filter" />
                 <SelectBoxWrapper>
                   <SelectExp
-                    styles={style}
+                    styles={filterStyle}
                     options={Options}
                     name="filter"
                     placeholder="Filter"
