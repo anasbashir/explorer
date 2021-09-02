@@ -138,7 +138,7 @@ const Tooltip = styled(UncontrolledTooltip)`
 const TableButton = styled(Button)`
   width: auto;
   height: 28px;
-  border-radius: 3px;
+  border-radius: unset !important;
   box-shadow: ${colors.shaddow};
   background-color: #1f4bb1;
   display: flex;
