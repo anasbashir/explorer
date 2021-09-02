@@ -259,7 +259,11 @@ const ConsensusState = () => {
               bottom: 0
             }}>
             <XAxis style={{ fontSize: '14px' }} dataKey="Time" />
-            <YAxis style={{ fontSize: '14px' }} domain={['auto', 'auto']} />
+            <YAxis
+              style={{ fontSize: '14px' }}
+              domain={['auto', 'auto']}
+              interval={1}
+            />
             <Tooltip />
             <Line
               type="monotone"
