@@ -184,8 +184,6 @@ const ConsensusState = () => {
   );
   arr2.reverse();
 
-  console.log('arr2', arr2);
-
   useEffect(() => {
     // dispatch(getLandingPageData());
   }, []);
