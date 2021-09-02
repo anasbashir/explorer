@@ -183,15 +183,20 @@ const Footer = () => {
                   </ListTag>
                 </ListItem>
                 <ListItem>
-                  <ListTag>Wallet</ListTag>
+                  <ListTag
+                    href="https://wallet.liboexplorer.com/"
+                    target="_blank"
+                    rel="follow">
+                    Wallet
+                  </ListTag>
                 </ListItem>
 
                 <ListItem>
                   <ListTag
-                    href=" https://liboex.trade/"
+                    href="https://libonomy.com/desktop-software"
                     target="_blank"
                     rel="follow">
-                    Exchange
+                    Libonomy OS
                   </ListTag>
                 </ListItem>
               </List>

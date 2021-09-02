@@ -70,6 +70,7 @@ const TableRow = styled.tr`
   display: table;
   width: 100%;
   table-layout: fixed;
+  border-left: 3px solid transparent;
 
   :hover {
     background-color: unset !important;
@@ -208,9 +209,9 @@ const BlocksTable = (props) => {
             ))}
 
           {!allBlocksLoading && !allBlocks && (
-            <NoData colSpan={6} height={360} />
+            <NoData colSpan={6} height={340} />
           )}
-          {allBlocksLoading && <TableLoader colSpan={6} height={360} />}
+          {allBlocksLoading && <TableLoader colSpan={6} height={340} />}
         </TableBody>
       </Table>
       {allBlocks && allBlocks.data.blocks.length >= 1 ? (

@@ -61,6 +61,7 @@ const TableRow = styled.tr`
   display: table;
   width: 100%;
   table-layout: fixed;
+  border-left: 3px solid transparent;
 
   :hover {
     background-color: unset !important;
