@@ -1,9 +1,10 @@
 import { SET_ACTIVE_BLOCKCHAIN } from './actionTypes';
 
 const initialState = {
-  name: localStorage.getItem('blockchain')
-    ? localStorage.getItem('blockchain')
-    : 'libonomy'
+  name: 'libonomy'
+  // localStorage.getItem('blockchain')
+  //   ? localStorage.getItem('blockchain')
+  //   : 'libonomy'
 };
 
 export default (state = initialState, { type, payload }) => {
