@@ -40,3 +40,4 @@ export { default as filter } from './filter.png';
 export { default as notfound } from './404.png';
 export { default as snap } from './OhSnap.png';
 export { default as error } from './Error404.png';
+export { default as lbyicon } from './lbyicon.png';

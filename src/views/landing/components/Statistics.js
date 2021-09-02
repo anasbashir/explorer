@@ -14,7 +14,8 @@ import {
   averageblock,
   marketcap,
   accounts,
-  difficulty
+  difficulty,
+  lbyicon
   // toggler
 } from 'src/assets/images';
 import styled from 'styled-components';
@@ -404,7 +405,7 @@ const Statistics = () => {
             <CardExp loading={+totalSupplyLoading}>
               <CardContent>
                 <IconWrapper>
-                  <Icon src={latestblockheight} alt="latestblockheight" />
+                  <Icon src={lbyicon} alt="latestblockheight" />
                 </IconWrapper>
                 <InnerBody>
                   <Title>LBY Price</Title>

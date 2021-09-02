@@ -36,7 +36,7 @@ const RightSection = styled.div`
 `;
 
 const LeftSection = styled.div`
-  flex: 3;
+  flex: 2;
   display: flex;
   flex-direction: row;
   @media (max-width: 991px) {
@@ -294,7 +294,7 @@ const Header = (props) => {
             </Link>
           </RightSection>
           <LeftSection>
-            <BlockchainSelect
+            {/* <BlockchainSelect
               styles={style}
               options={BlockchainOptions}
               placeholder="Blockchain"
@@ -302,7 +302,7 @@ const Header = (props) => {
               value={BlockchainOptions.filter(
                 (option) => option.value === blockchain
               )}
-            />
+            /> */}
             <SearchBox>
               {/* <VerticalLine /> */}
               <Input
