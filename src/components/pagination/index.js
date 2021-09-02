@@ -145,7 +145,7 @@ const Pagination = ({
   }
   function dotsItem() {
     return (
-      <DotsContainer>
+      <DotsContainer key="">
         <Dots />
         <Dots />
         <Dots />

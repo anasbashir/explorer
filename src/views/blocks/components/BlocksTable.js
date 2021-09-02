@@ -128,7 +128,6 @@ const BlocksTable = (props) => {
   useEffect(() => {
     const { location } = props;
     const { page = 1, limit = 10 } = queryString.parse(location.search);
-    console.log(location.search, 'chking');
     const filter = {
       page: page - 1,
       limit: limit
