@@ -88,6 +88,7 @@ const Wrapper = styled.div``;
 const CardExp = styled(Card)`
   padding: 0.6rem;
   display: flex;
+  height: 100%;
   min-height: 66px;
   flex-direction: row;
   justify-content: space-between;
@@ -314,7 +315,7 @@ const Statistics = () => {
           </CardWrapper>
         </Col>
         <Col lg="6" md="6" sm="6">
-          <CardExp loading={+totalSupplyLoading}>
+          <CardExp loading={+totalSupplyLoading} style={{ height: 'unset' }}>
             <CardContent>
               <IconWrapper>
                 <Icon src={marketcap} alt="marketcap" />
@@ -345,7 +346,6 @@ const Statistics = () => {
                 </Text>
               </InnerBody>
             </CardContent>
-            <CardContent></CardContent>
           </CardExp>
         </Col>
         <Col lg="6" md="6" sm="6">
